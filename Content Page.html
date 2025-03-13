@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTENT Page</title>
+  <!-- Include Animate.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <style>
+    /* Reset default margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container for images */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center images */
+    }
+
+    /* Make images responsive */
+    .image {
+      width: 100vw; /* Full viewport width */
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+
+    /* Hide the body initially */
+    body {
+      opacity: 0;
+      --animate-duration: 7s; /* Adjust the fade-in speed here */
+    }
+
+    /* Ensure the body is visible after the fade-in animation */
+    .animate__fadeIn {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/2.jpg" class="image">
+    <img src="images/3.jpg" class="image">
+    <img src="images/4.jpg" class="image">
+  </div>
+
+  <script>
+    // Add the fade-in effect when the page loads
+    window.onload = function() {
+      // Add the Animate.css classes to the body
+      document.body.classList.add('animate__animated', 'animate__fadeIn');
+      document.body.style.opacity = 1; // Ensure the body becomes visible
+    };
+
+    // Play music if the flag is set
+    if (sessionStorage.getItem("music-playing") === "true") {
+      const music = new Audio("music/Beautiful in white.mp3");
+      music.loop = true;
+      music.play();
+      sessionStorage.removeItem("music-playing"); // Remove flag to prevent replay
+    }
+  </script>
+
+  <script>
+    let zoomLevel = 1; // Default zoom level
+
+    // Listen for CTRL + Mouse Scroll
+    window.addEventListener("wheel", function(event) {
+      if (event.ctrlKey) { // Check if CTRL is pressed
+        event.preventDefault(); // Prevent default browser zoom
+
+        if (event.deltaY < 0) {
+          zoomLevel += 0.1; // Zoom in
+        } else {
+          zoomLevel -= 0.1; // Zoom out
+        }
+
+        if (zoomLevel < 0.5) zoomLevel = 0.5; // Minimum zoom limit
+        if (zoomLevel > 2) zoomLevel = 2; // Maximum zoom limit
+
+        document.body.style.transform = `scale(${zoomLevel})`; // Apply zoom effect
+        document.body.style.transformOrigin = "center top"; // Keep scaling from the center
+      }
+    });
+  </script>
+</body>
+</html>

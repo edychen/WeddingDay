@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTENT Page</title>
+  <style>
+    /* Reset default margin and padding */
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container for images */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center images */
+    }
+
+    /* Make images responsive */
+    .image {
+      width: 100vw; /* Full viewport width */
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+    }
+
+    /* Button styling */
+    .click-button {
+      position: absolute; /* Use absolute positioning */
+      cursor: grab; /* Indicate draggable behavior */
+      transition: opacity 0.3s; /* Add a hover effect */
+    }
+
+    /* Hover effect */
+    .click-button:hover {
+      opacity: 0.9; /* Slightly fade on hover */
+    }
+
+    /* Disabled drag state */
+    .click-button.locked {
+      cursor: default; /* Change cursor to default */
+    }
+
+    /* Fade-out animation */
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/Landing Page.jpg" class="image">
+  </div>
+
+  <!-- Clickable Image Button -->
+  <img src="images/Undangan.png" class="click-button resize-button" onclick="redirectToContent()" alt="Click Me">
+
+  <script>
+    function redirectToContent() {
+      // Add fade-out animation to the body
+      document.body.classList.add('fade-out');
+
+      // Wait for the animation to complete before redirecting
+      setTimeout(() => {
+        sessionStorage.setItem("music-playing", "true"); // Save music state
+        window.location.href = "Content Page.html"; // Redirect
+      }, 500); // Match this duration with the fade-out animation (0.5s = 500ms)
+    }
+  </script>
+
+  <script>
+    let zoomLevel = 1; // Default zoom level
+
+    // Listen for CTRL + Mouse Scroll
+    window.addEventListener("wheel", function(event) {
+      if (event.ctrlKey) { // Check if CTRL is pressed
+        event.preventDefault(); // Prevent default browser zoom
+
+        if (event.deltaY < 0) {
+          zoomLevel += 0.1; // Zoom in
+        } else {
+          zoomLevel -= 0.1; // Zoom out
+        }
+
+        if (zoomLevel < 0.5) zoomLevel = 0.5; // Minimum zoom limit
+        if (zoomLevel > 2) zoomLevel = 2; // Maximum zoom limit
+
+        document.body.style.transform = `scale(${zoomLevel})`; // Apply zoom effect
+        document.body.style.transformOrigin = "center top"; // Keep scaling from the center
+      }
+    });
+  </script>
+
+  <script>
+    const button = document.querySelector('.click-button');
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    // Load saved position from localStorage
+    const savedPosition = JSON.parse(localStorage.getItem('buttonPosition'));
+    if (savedPosition) {
+      button.style.left = `${savedPosition.left}px`;
+      button.style.top = `${savedPosition.top}px`;
+    }
+
+    // Function to enable dragging
+    function enableDrag() {
+      button.style.cursor = 'grab'; // Set cursor to grab
+      button.classList.remove('locked'); // Remove locked class
+
+      // Add event listeners for dragging
+      button.addEventListener('mousedown', startDrag);
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', endDrag);
+    }
+
+    // Function to disable dragging
+    function disableDrag() {
+      button.style.cursor = 'default'; // Set cursor to default
+      button.classList.add('locked'); // Add locked class
+
+      // Remove event listeners for dragging
+      button.removeEventListener('mousedown', startDrag);
+      document.removeEventListener('mousemove', drag);
+      document.removeEventListener('mouseup', endDrag);
+    }
+
+    // When the mouse is pressed down on the button
+    function startDrag(e) {
+      isDragging = true;
+
+      // Calculate the offset between the mouse position and the button's top-left corner
+      offsetX = e.clientX - button.getBoundingClientRect().left;
+      offsetY = e.clientY - button.getBoundingClientRect().top;
+
+      // Change cursor to "grabbing" while dragging
+      button.style.cursor = 'grabbing';
+    }
+
+    // When the mouse is moved
+    function drag(e) {
+      if (isDragging) {
+        // Calculate the new position of the button
+        const newX = e.clientX - offsetX;
+        const newY = e.clientY - offsetY;
+
+        // Apply the new position
+        button.style.left = `${newX}px`;
+        button.style.top = `${newY}px`;
+      }
+    }
+
+    // When the mouse is released
+    function endDrag() {
+      isDragging = false;
+
+      // Save the button's position to localStorage
+      const buttonPosition = {
+        left: parseInt(button.style.left, 10),
+        top: parseInt(button.style.top, 10),
+      };
+      localStorage.setItem('buttonPosition', JSON.stringify(buttonPosition));
+
+      // Change cursor back to "grab"
+      button.style.cursor = 'grab';
+    }
+
+    // Enable dragging by default
+    enableDrag();
+
+    // Lock position on pressing the 'L' key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'l' || e.key === 'L') {
+        disableDrag(); // Disable dragging
+        alert('Button position locked!'); // Optional: Notify the user
+      }
+    });
+  </script>
+</body>
+</html>
