@@ -27,6 +27,7 @@ html, body {
 
 /* Background image */
 .image {
+  position: relative;
   width: 100%; /* Fill the container */
   height: auto; /* Maintain aspect ratio */
   display: block;
@@ -35,30 +36,12 @@ html, body {
 /* Clickable image (button) */
 .click-button {
   position: absolute;
-  top: 60.92%; /* Adjust for the correct position */
-  left: 44.42%; /* Adjust for the correct position */
-  transform: translate(-50%, -50%); /* Center it */
-  width: 150px; /* Adjust size */
+  top: 60.92%;  /* Adjust based on where the hand is */
+  left: 40.7%; /* Adjust based on where the hand is */
+  width: 10%; /* Makes it scale proportionally */
   height: auto;
   cursor: pointer;
-}
-
-
-/* General button styles */
-.stylable-button {
-  background-color: #007bff; /* Button background color */
-  color: white; /* Text color */
-  padding: 10px 20px; /* Padding */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Text size */
-  font-weight: bold; /* Bold text */
-  transition: background-color 0.3s ease; /* Smooth hover effect */
-}
-
-.stylable-button:hover {
-  background-color: #0056b3; /* Darker background on hover */
+  z-index: 1;
 }
 
 /* Resize button */
