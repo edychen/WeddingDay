@@ -29,7 +29,7 @@
   position: absolute;
   top: 75%;  /* Adjust for positioning */
   left: 52%; /* Adjust for positioning */
-  width: 10vw; /* Responsive button size */
+  width: 100px; /* Responsive button size */
   height: auto;
   cursor: pointer;
   transform: translate(-50%, -50%);
@@ -39,7 +39,7 @@
 /* Adjust styles for mobile devices */
 @media (max-width: 768px) {
   .click-button {
-    width: 20vw; /* Increase button size for better visibility on mobile */
+    width: 50px; /* Increase button size for better visibility on mobile */
   }
 }
 
