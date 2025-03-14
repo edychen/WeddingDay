@@ -10,7 +10,8 @@
   position: relative;
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
-  background: url('images/landing-page.jpg') no-repeat center center/cover; /* Responsive background */
+  background: url('images/landing-page.jpg') no-repeat center center/contain; /* Responsive background */
+  background-color: #ffffff; /* Add a background color to fill any empty space */
       }
 
 
