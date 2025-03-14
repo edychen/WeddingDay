@@ -41,11 +41,6 @@
       position: absolute; /* Overlay on top of the background */
     }
 
-    /* Hover effect */
-    .click-button:hover {
-      opacity: 0.9; /* Slightly fade on hover */
-    }
-
     /* Fade-out animation */
     .fade-out {
       opacity: 0;
@@ -71,13 +66,6 @@
         window.location.href = "content-page.html"; // Redirect
       }, 500); // Match this duration with the fade-out animation (0.5s = 500ms)
     }
-
-
-    // Adjust position on page load
-    window.addEventListener("load", adjustButtonPosition);
-
-    // Adjust position on window resize
-    window.addEventListener("resize", adjustButtonPosition);
 
     // Prevent zooming with CTRL + Scroll
     window.addEventListener("wheel", function(event) {
