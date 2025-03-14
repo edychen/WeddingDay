@@ -1,0 +1,95 @@
+/* Make sure the body takes full screen height */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Allows scrolling if content is larger than viewport */
+}
+
+/* Keeps the image at its original design size */
+.main-image {
+  display: block;
+}
+
+/* Container for the background image */
+.container {
+  position: relative; /* Ensure the button is positioned relative to this container */
+  width: 100vw; /* Full viewport width */
+  height: auto; /* Maintain aspect ratio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image */
+.image {
+  width: 100%; /* Fill the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
+/* Clickable image (button) */
+.click-button {
+  position: absolute;
+  top: 64.35%; /* Adjust for the correct position */
+  left: 43.95%; /* Adjust for the correct position */
+  transform: translate(-50%, -50%); /* Center it */
+  width: 150px; /* Adjust size */
+  height: auto;
+  cursor: pointer;
+}
+
+
+/* General button styles */
+.stylable-button {
+  background-color: #007bff; /* Button background color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Text size */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.stylable-button:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Resize button */
+.resize-button {
+  width: 150px; /* Set your desired width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure the button stays in the same position */
+.button-container {
+  position: fixed; /* Fixed position to keep it in the same place */
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-container button:hover {
+  background-color: #0056b3;
+}
+
+.image {
+  width: 100vw; /* Full viewport width */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}
