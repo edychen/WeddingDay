@@ -35,8 +35,8 @@ html, body {
 /* Clickable image (button) */
 .click-button {
   position: absolute;
-  top: 64.35%; /* Adjust for the correct position */
-  left: 43.95%; /* Adjust for the correct position */
+  top: 60.92%; /* Adjust for the correct position */
+  left: 44.42%; /* Adjust for the correct position */
   transform: translate(-50%, -50%); /* Center it */
   width: 150px; /* Adjust size */
   height: auto;
