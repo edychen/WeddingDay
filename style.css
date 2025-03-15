@@ -37,10 +37,12 @@
   z-index: 10;
 }
 
-/* Adjust styles for mobile devices */
-@media (max-width: 768px) {
+/* Adjust position for mobile screens */
+@media (max-width: 375px) {
   .click-button {
-    width: 50px; /* Increase button size for better visibility on mobile */
+     width: 50px;
+      top: 60%;
+      left: 49%;
   }
 }
 
