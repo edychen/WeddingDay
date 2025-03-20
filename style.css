@@ -5,46 +5,51 @@
   box-sizing: border-box;
 }
 
-/* Background Image Container */
-.container {
-  position: relative;
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  background: url('images/landing-page.jpg') no-repeat center center/contain; /* Responsive background */
-  background-color: #ffffff; /* Add a background color to fill any empty space */
-      }
-
-
-/* Background Image */
-.image-background {
+html, body {
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
+
+body {
+  background-image: url('images/landing-page-2.jpg');
+  background-size: contain; /* or 100% 100% */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px; /* Add safe space */
+}
+
+/* Background Image Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
 
 /* Clickable Image Button */
-.click-button {
-  position: absolute;
-  top: 75%;  /* Adjust for positioning */
-  left: 52%; /* Adjust for positioning */
-  width: 100px; /* Responsive button size */
-  height: auto;
-  cursor: pointer;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-/* Adjust position for mobile screens */
-@media (max-width: 375px) {
-  .click-button {
-     width: 50px;
-      top: 60%;
-      left: 49%;
+.button {
+    background-image: url('images/Undangan.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20%; /* Relative width */
+    max-width: 300px; /* Maximum size */
+    position: absolute; /* Instead of absolute */
+    margin: 20px auto; /* Center horizontally */
+    display: block;
   }
-}
+  
+  @media (min-width: 1000px) {
+    .button {
+      width: 8%;
+    }
+  }
 
 /* Fade-out effect */
 .fade-out {
