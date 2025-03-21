@@ -51,6 +51,12 @@ body {
     }
   }
 
+  @media (max-width: 430px) {
+    .button {
+      width: 32%;
+    }
+  }
+
 /* Fade-out effect */
 .fade-out {
   opacity: 0;
