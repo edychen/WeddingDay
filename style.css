@@ -51,11 +51,6 @@ body {
     }
   }
 
-  /*code baru di bwh 3 lines*/
-  .hidden {
-    visibility: hidden; /* Hide page initially */
-  }
-
 /* Fade-out effect */
 .fade-out {
   opacity: 0;
