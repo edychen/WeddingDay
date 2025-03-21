@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  background-image: url('images/landing-page-2.jpg');
+  background-image: url('images/landing-page-3.jpg');
   background-size: contain; /* or 100% 100% */
   background-position: center;
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ body {
 
 /* Clickable Image Button */
 .button {
-    background-image: url('images/Undangan.png');
+    background-image: url('images/Buka undangan.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 20%; /* Relative width */
@@ -49,6 +49,11 @@ body {
     .button {
       width: 8%;
     }
+  }
+
+  /*code baru di bwh 3 lines*/
+  .hidden {
+    visibility: hidden; /* Hide page initially */
   }
 
 /* Fade-out effect */
