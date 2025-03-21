@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Edy & Priska Juniyati Wedding</title>
+  <title>Edy & Priska Juniyati Wedding </title>
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -12,7 +12,7 @@
     <div class="container">
       <!-- Clickable Image Button -->
       <a href="#" class="button"></a>
-      <img src="images/Undangan.png" class="button" onclick="redirectToContent()" alt="Click Me">
+      <img src="images/Buka undangan.png" class="button" onclick="redirectToContent()" alt="Click Me">
     </div>
   
     <script>
@@ -33,4 +33,24 @@
         window.location.reload(); // Reload the page
       }
     }
+
+    // ✅ FIX: Ensure background & button load together
+    document.addEventListener("DOMContentLoaded", function () {
+        const background = new Image();
+        const button = document.getElementById("buttonImg");
+
+        background.src = "images/landing-page-3.jpg"; // Replace with your actual background image
+
+        let imagesLoaded = 0;
+
+        function checkLoaded() {
+          imagesLoaded++;
+          if (imagesLoaded === 2) {
+            document.body.classList.remove("hidden"); // Show content when both are ready
+          }
+        }
+
+        background.onload = checkLoaded;
+        button.onload = checkLoaded;
+      });
   </script>
