@@ -34,23 +34,4 @@
       }
     }
 
-    // ✅ FIX: Ensure background & button load together
-    document.addEventListener("DOMContentLoaded", function () {
-        const background = new Image();
-        const button = document.getElementById("buttonImg");
-
-        background.src = "images/landing-page-3.jpg"; // Replace with your actual background image
-
-        let imagesLoaded = 0;
-
-        function checkLoaded() {
-          imagesLoaded++;
-          if (imagesLoaded === 2) {
-            document.body.classList.remove("hidden"); // Show content when both are ready
-          }
-        }
-
-        background.onload = checkLoaded;
-        button.onload = checkLoaded;
-      });
   </script>
