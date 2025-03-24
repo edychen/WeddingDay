@@ -47,13 +47,13 @@ body {
   
   @media (min-width: 1000px) {
     .button {
-      width: 8%;
+      width: 10%;
     }
   }
 
   @media (max-width: 430px) {
     .button {
-      width: 32%;
+      width: 44%;
     }
   }
 
